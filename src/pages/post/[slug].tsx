@@ -15,6 +15,8 @@ import {
 } from '~/lib/sanity.queries'
 import type { SharedPageProps } from '~/pages/_app'
 import { formatDate } from '~/utils'
+import Head from 'next/head'
+import Script from 'next/script'
 
 interface Query {
   [key: string]: string
@@ -52,6 +54,8 @@ export default function ProjectSlugRoute(
   })
 
   return (
+    <>
+    <Script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"/>
     <Container>
       <section className="post">
         {post.mainImage ? (
@@ -75,6 +79,7 @@ export default function ProjectSlugRoute(
         </div>
       </section>
     </Container>
+    </>
   )
 }
 
